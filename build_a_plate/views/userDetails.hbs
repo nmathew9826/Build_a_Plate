@@ -1,0 +1,108 @@
+<div>
+<main class="col-md-12">
+<br>
+<h2>{{user.person_name}}</h2>
+<hr />
+<form method="post" action="/user/update/{{user._id}}" >
+<legend>Personal Information</legend>
+<fieldset class="userDetails">
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+<label>User Id:</label>
+<input class="form-control" name="id" type="text" value= "{{user._id}}" readonly/>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<label>User Name:</label>
+<input class="form-control" name="person_name" type="text" value="{{user.person_name}}" />
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+<label>Email:</label>
+<input class="form-control" name="person_email" type="email" value="{{user.person_email}}" /> 
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<label>Phone Number:</label>
+<input class="form-control" name="person_phone" type="phone" value="{{user.person_phone}}" /> 
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+<div class="form-group">
+<label>Address(Street):</label>
+<input class="form-control" name="person_address" type="text" value="{{user.person_address}}" />
+</div>
+</div>
+<div class="col-md-4">
+<div class="form-group">
+<label>Address(City):</label>
+<input class="form-control" name="city" type="text" value="{{user.city}}" />
+</div>
+</div>
+<div class="col-md-4">
+<div class="form-group">
+<label>Address(Province):</label>
+<input class="form-control" name="province" type="text" value="{{user.province}}" />
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+<div class="form-group">
+<label>Postal Code:</label>
+<input class="form-control" name="postal_code" type="text" value="{{user.postal_code}}" />
+</div>
+</div>
+<div class="col-md-4">
+<div class="form-group">
+<label>Registered On:</label>
+<input class="form-control" name="registeredDate" type="text" value="23/06/2021"/>
+</div>
+</div>
+<div class="col-md-4">
+<div class="form-group">
+<label for="is_active">Active:</label>
+<label class="switch"> 
+<input class="form-control" name="is_active" type="checkbox"  {{#if user.is_active}} checked
+  {{/if}}/>
+
+<span class="slider round"></span> 
+</label>
+</div>
+</div>
+</div>
+<input type="submit" value="Update">
+</fieldset>
+</form>
+<br>
+<fieldset>
+<legend>Past Orders</legend>
+<div class="scroll">
+<table id="orderList" style="width:100%">
+  <tr>
+    <th>Order Id</th>
+    <th>Products Ordered</th>
+    <th>Order Date</th>
+  </tr>
+  <tr>
+    <td>{{pastOrder._id}}</td>
+    <td>{{#each pastOrder.products}} 
+        {{product_name}},
+      {{/each}}
+    </td>
+    <td>{{pastOrder.order_date}}</td>
+  </tr>
+ </table>
+</div>
+</fieldset>
+<hr/>
+</main>
+</div>

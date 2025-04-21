@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row ">
+
+        <div class="col-md-4 no gutters">
+            <div class="userprofile border-0 justify-content-center">
+
+                <div class="userdetailsDashboard">
+                    <i style='font-size:100px' class='fas'>&#xf406;</i>
+                    <br>
+                    <h2>{{person.person_name}}</h2>
+                    <p>{{person.person_email}}</p>
+                    <p>{{person.person_phone}}</p>
+                    <p>{{person.person_address}},</p>
+                    <p>{{person.city}}</p>
+                    <p>{{person.province}} {{person.postal_code}}</p>
+                </div>
+                <a href="/userprofile/update">
+                    <button class="btn btn-primary">Edit profile</button>
+                </a>
+            </div>
+
+
+        </div>
+        <div class="col-md-8 no gutters">
+            <div class="orderhistory">
+                <div class="myorders">
+                    <h2>My Orders</h2>
+                    <hr />
+
+                    <div class="table-responsive">
+                        <table class="tableUserDash">
+                            <tbody>
+                                {{#each order}}
+                                <tr>
+                                    <td>
+                                        <h3>{{_id}} </h3>
+                                        <p>Order date: {{order_date}}</p>
+                                        <p>Items: </p>
+                                        {{#each products}}
+                                        <p>{{product_name}}</p>
+                                        {{/each}}
+                                    </td>
+                                    <td>
+                                        {{#dateEqual order_date}}
+                                        <button class="btn btn-primary" onclick=alert("Cancelled")>
+                                            Cancel order
+                                        </button>
+                                        {{/dateEqual}}
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

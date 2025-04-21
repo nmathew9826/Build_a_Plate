@@ -1,0 +1,79 @@
+<div>
+<h1>Users</h1>
+<div class="admindashscroll">
+<table class="adminDashTable" id="usersList" style="width:100%">
+  <thead>
+  <tr>
+    <th>User Id</th>
+    <th>User Name</th>
+    <th>Email</th>
+  </tr>
+</thead>
+<tbody>
+{{#each users}}   
+<tr>
+   <td><a href="/userDetails/{{_id}}">{{_id}}</a></td>
+    <td>{{person_name}}</td>
+    <td>{{person_email}}</td>
+</tr>
+{{/each}}
+</tbody>
+</table>
+</div>
+
+<br>
+<br>
+
+<h1>Orders</h1>
+<div class="admindashscroll">
+<table class="adminDashTable" id="orderList" style="width:100%">
+  <thead>
+  <tr>
+    <th>Order Id</th>
+    <th>Customer Name</th>
+    <th>Customer Id</th>
+    <th>Order Date</th>
+  </tr>
+  </thead>
+  <tbody>
+    
+  {{#each orders}}
+  <tr>
+    <td>{{_id}}</td>
+    <td>{{customer_name}}</td>
+    <td>{{customer_id}}</td>
+    <td>{{order_date}}</td>
+  </tr>
+  {{/each}}
+  
+</tbody>
+
+</table>
+</div>
+<br>
+<br>
+
+<h1>Products</h1>
+<div class="admindashscroll">
+<table class="adminDashTable" id="productList" style="width:100%">
+  <thead>
+  <tr>
+    <th>Product Id</th>
+    <th>Product Name</th>
+    <th>Cost</th>
+  </tr>
+  </thead>
+  <tbody>
+    {{#each products}}
+    <tr>
+    <td> <a href="/adminProductDetails/{{_id}}"> {{_id}}</a></td>
+    <td>{{product_name}}</td>
+    <td>{{product_price}}$</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+</div>
+<br>
+<br>
